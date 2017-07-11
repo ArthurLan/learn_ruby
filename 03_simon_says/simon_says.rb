@@ -20,5 +20,15 @@ def first_word(words, a = 1)
 end
 
 def titleize(words)
-		words.split.each { |word| word.capitalize!} * " "
-	end
+		little = ["and", "or", "the", "over"]
+
+		result = words.split.each do |word|
+			word.capitalize! unless little.include?(word)
+		end
+
+		result[0].capitalize!
+
+		result * " "
+end
+
+puts titleize("hello and hello blabbla wesh the foo bar")
